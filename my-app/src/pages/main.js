@@ -1,13 +1,14 @@
 import React from 'react';
 import './main.css';
 import Row from '../components/tableEntry.js';
+import Table from '../components/table.js';
 
 class Main extends React.Component {
     
     constructor(props) {
         super(props);
         this.state = {
-            stock : {}
+            userPortfolio : []
         }
     }
 
@@ -19,8 +20,12 @@ class Main extends React.Component {
             .then(response => response.json())
             .then(response => {
             //    document.getElementById('changed').value = response.data;
-                console.log(response.data, "is retunred");
-                this.setState({"stock": response.data});
+                console.log(response.data, "is returned");
+                for (var i = 0; i < response.data.length; i++) {
+                    this.setState({"userPortfolio": [...this.state.userPortfolio, response.data[i].portfolio]})
+                }
+
+              //  this.setState({"userPortfolio": response.data});
             })
             .catch(err => {
             // Do something for an error here
@@ -32,6 +37,7 @@ class Main extends React.Component {
     //    document.getElementById('changed').value = (this.state.stock);
       //  console.log(this.state.stock);
     }
+//                     <Row stock={this.state.portfolio} />
 
     render() {return (
         <form>
@@ -48,8 +54,9 @@ class Main extends React.Component {
                         <th>Estimated Dividend Payout</th>
                         <th>Estimated Dividend Yield</th>
                     </tr>
-                    <Row stock={this.state.stock} />
-
+                    {console.log("the state portfolio is", this.state.userPortfolio)}
+                    
+                    <Table port={this.state.userPortfolio} />
                 </table>
                 
                 <div className="space">

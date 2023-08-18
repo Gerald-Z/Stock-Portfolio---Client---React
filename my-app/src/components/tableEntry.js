@@ -1,4 +1,9 @@
 const Row = (props) => {
+  //  if (props.stock === "undefined") {
+   //     return (<div/>);
+    //}
+    
+    
     return (
         <tr>
             <td>{props.stock.CompanyName}</td>
