@@ -1,6 +1,6 @@
 import React from 'react';
-import './main.css'
-
+import './main.css';
+import Row from '../components/tableEntry.js';
 
 class Main extends React.Component {
     
@@ -39,15 +39,17 @@ class Main extends React.Component {
                 <div className="center"><p>Here Are Your Current Positions:</p></div>
                 <table className="stock-list">
                     <tr>
-                        <th>{this.state.stock.CompanyName}</th>
-                        <th>{this.state.stock.Ticker}</th>
-                        <th>{this.state.stock.SharesOwned}</th>
-                        <th>{this.state.stock.SharePrice}</th>
-                        <th>{this.state.stock.TotalCost}</th>
-                        <th>{this.state.stock.TotalValue}</th>
-                        <th>{this.state.stock.EstimatedDivPayout}</th>
-                        <th>{this.state.stock.EstimatedDivYield}</th>
+                        <th>Company Name</th>
+                        <th>Ticker Symbol</th>
+                        <th>Shares Owned</th>
+                        <th>Share Price</th>
+                        <th>Total Cost</th>
+                        <th>Total Value</th>
+                        <th>Estimated Dividend Payout</th>
+                        <th>Estimated Dividend Yield</th>
                     </tr>
+                    <Row stock={this.state.stock} />
+
                 </table>
                 
                 <div className="space">
