@@ -1,22 +1,25 @@
 import React from 'react';
-
-const callAPI = function() {
-    var apiUrl = 'http://localhost:4400/api/portfolio';
-    
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(response => {
-            document.getElementById('changed').value = response.data;
-            return;
-        })
-        .catch(err => {
-        // Do something for an error here
-        });
-}
-
+import './main.css'
 
 
 const Main = () => {
+    
+
+
+    const callAPI = () => {
+        var apiUrl = 'http://localhost:4400/api/portfolio';
+    
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(response => {
+                document.getElementById('changed').value = response.data;
+                return;
+            })
+            .catch(err => {
+            // Do something for an error here
+            });
+    };
+
     return (
         <form>
             <fieldset>
@@ -60,8 +63,7 @@ const Main = () => {
 
             <input id="changed" value="text" />
             </fieldset>
-            <button onClick='callAPI()'>Click here to call API</button>
-
+            <button onClick={callAPI}>Click here to call API</button>
         </form>
     )
 }
