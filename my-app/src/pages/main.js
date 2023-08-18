@@ -13,31 +13,31 @@ class Main extends React.Component {
     }
 
 
+    setPort(newPortfolio) {
+        this.setState((prevState) => ({
+            "userPortfolio": [...prevState.userPortfolio, newPortfolio]
+        }))
+    }
+
+
     callAPI() {
         const apiUrl = 'http://localhost:4400/api/portfolio';
     
+
         fetch(apiUrl)
             .then(response => response.json())
             .then(response => {
-            //    document.getElementById('changed').value = response.data;
-                console.log(response.data, "is returned");
                 for (var i = 0; i < response.data.length; i++) {
-                    this.setState({"userPortfolio": [...this.state.userPortfolio, response.data[i].portfolio]})
+                    console.log(response.data, "is returned");
+                    this.setPort(response.data[i].portfolio);
                 }
-
-              //  this.setState({"userPortfolio": response.data});
-            })
-            .catch(err => {
-            // Do something for an error here
-            });
+    })    
     };
+
 
     componentDidMount() {
         this.callAPI();
-    //    document.getElementById('changed').value = (this.state.stock);
-      //  console.log(this.state.stock);
     }
-//                     <Row stock={this.state.portfolio} />
 
     render() {return (
         <form>
@@ -54,7 +54,6 @@ class Main extends React.Component {
                         <th>Estimated Dividend Payout</th>
                         <th>Estimated Dividend Yield</th>
                     </tr>
-                    {console.log("the state portfolio is", this.state.userPortfolio)}
                     
                     <Table port={this.state.userPortfolio} />
                 </table>
