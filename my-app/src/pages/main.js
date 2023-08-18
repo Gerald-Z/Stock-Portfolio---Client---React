@@ -37,7 +37,7 @@ class Main extends React.Component {
     render() {return (
         <form>
             <fieldset>
-                <div className="center"><p>Here Are Your Current Positions:</p></div>
+                <div className="center"><h1>Here Are Your Current Positions:</h1></div>
                 <table className="stock-list">
                     <tr>
                         <th>Company Name</th>
@@ -53,7 +53,7 @@ class Main extends React.Component {
                 </table>
                 
                 <div className="space">
-                    <div className="center"><a href="new_user.html"><p>Click Here to Add a Position</p></a></div>
+                    <div className="center"><button><a href="position_changes">Bought or Sold Positions? Click Here!</a></button></div>
                 </div>
             </fieldset>
         </form>

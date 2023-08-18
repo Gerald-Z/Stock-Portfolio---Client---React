@@ -1,0 +1,8 @@
+#submitTicker {
+    margin-left: 5%
+}
+
+fieldset.notTop {
+    margin-top: 0px;
+    visibility: hidden;
+}

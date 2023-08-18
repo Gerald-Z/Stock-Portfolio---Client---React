@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route }
 
 import Index from './pages/index.js'
 import Main from './pages/main.js'
+import PositionChanges from './pages/newPosition.js'
 
 
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Index />} />
         <Route path='main' element={<Main />} />
+        <Route path='position_changes' element={<PositionChanges />} />
 
       </Routes>
     </Router>

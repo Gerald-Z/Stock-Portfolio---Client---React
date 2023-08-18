@@ -52,3 +52,15 @@ td {
 table {
     width: 100%;
 }
+
+button {
+    background-color:rgb(145, 190, 230);
+    border-radius: 10px;
+    font-style: normal;
+
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: red;
+}
