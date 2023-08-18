@@ -4,7 +4,6 @@ import Row from '../components/tableEntry.js';
 import Table from '../components/table.js';
 
 class Main extends React.Component {
-    
     constructor(props) {
         super(props);
         this.state = {
@@ -12,17 +11,14 @@ class Main extends React.Component {
         }
     }
 
-
     setPort(newPortfolio) {
         this.setState((prevState) => ({
             "userPortfolio": [...prevState.userPortfolio, newPortfolio]
         }))
     }
 
-
     callAPI() {
         const apiUrl = 'http://localhost:4400/api/portfolio';
-    
 
         fetch(apiUrl)
             .then(response => response.json())
@@ -31,9 +27,8 @@ class Main extends React.Component {
                     console.log(response.data, "is returned");
                     this.setPort(response.data[i].portfolio);
                 }
-    })    
+            })    
     };
-
 
     componentDidMount() {
         this.callAPI();
@@ -54,7 +49,6 @@ class Main extends React.Component {
                         <th>Estimated Dividend Payout</th>
                         <th>Estimated Dividend Yield</th>
                     </tr>
-                    
                     <Table port={this.state.userPortfolio} />
                 </table>
                 
