@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Index />} />
+        <Route path='/Stock-Portfolio---Client---React/' element={<Index />} />
         <Route path='main' element={<Main />} />
         <Route path='position_changes' element={<PositionChanges />} />
 
