@@ -11,12 +11,12 @@ import PositionChanges from './pages/newPosition.js'
 
 function App() {
   return (
-    <HashRouter>
+    <HashRouter basename='/'>
       <Routes>
         <Route path='/' element={<Index />} />
 
-        <Route path='main' element={<Main />} />
-        <Route path='position_changes' element={<PositionChanges />} />
+        <Route path='/main' element={<Main />} />
+        <Route path='/position_changes' element={<PositionChanges />} />
 
       </Routes>
     </HashRouter>

@@ -1,5 +1,7 @@
 import React from 'react';
 import './index.css'
+import { Link } from 'react-router-dom';
+
 
 const Index = () => {
     return (
@@ -10,8 +12,8 @@ const Index = () => {
                 <div className="center"><label id="password-label">Password: <input type="password" className="textInput" required /> </label></div>
                 <div className="center"><input type="submit" className="textInput" id="submit" value="Log In" />  </div>
                 <div className="space">
-                    <div className="center"><a href="new_user"><p>New user? Click here to create an account!</p></a></div>
-                    <div className="center"><a href="main"><p>Click here to get to a template portfolio</p></a></div>
+                   <div className="center"><Link to="/new_user">New user? Click here to create an account!</Link></div>
+                   <div className="center"><Link to="/main">Click here to get to a template portfolio</Link></div>
                 </div>
             </fieldset>
         </form>

@@ -2,6 +2,8 @@ import React from 'react';
 import './main.css';
 import Row from '../components/tableEntry.js';
 import Table from '../components/table.js';
+import { Link } from 'react-router-dom';
+
 
 class Main extends React.Component {
     constructor(props) {
@@ -53,7 +55,7 @@ class Main extends React.Component {
                 </table>
                 
                 <div className="space">
-                    <div className="center"><button><a href="position_changes">Bought or Sold Positions? Click Here!</a></button></div>
+                   <div className="center"><button><Link to="/position_changes">Bought or Sold Positions? Click Here!</Link></button></div>
                 </div>
             </fieldset>
         </form>
