@@ -7,15 +7,18 @@ import Index from './pages/index.js'
 import Main from './pages/main.js'
 import PositionChanges from './pages/newPosition.js'
 
+const baseUrl = 'https://gerald-z.github.io/Stock-Portfolio---Client---React/';
 
+       // <Route path={baseUrl} element={<Index />} />
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/Stock-Portfolio---Client---React/' element={<Index />} />
-        <Route path='main' element={<Main />} />
-        <Route path='position_changes' element={<PositionChanges />} />
+        <Route path='https://gerald-z.github.io/Stock-Portfolio---Client---React/' element={<Index />} />
+
+        <Route path={baseUrl+'main'} element={<Main />} />
+        <Route path={baseUrl+'position_changes'} element={<PositionChanges />} />
 
       </Routes>
     </Router>
