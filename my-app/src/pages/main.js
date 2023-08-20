@@ -65,4 +65,9 @@ class Main extends React.Component {
 
 
 
+//module.exports = Main;
+
 export default Main;
+
+//module.exports = {Main};
+//module.exports.Main = Main;
