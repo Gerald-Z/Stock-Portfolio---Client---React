@@ -11,7 +11,7 @@ import PositionChanges from './pages/newPosition.js'
 
 function App() {
   return (
-    <HashRouter basename='/'>
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path='/' element={<Index />} />
 
@@ -19,7 +19,7 @@ function App() {
         <Route path='/position_changes' element={<PositionChanges />} />
 
       </Routes>
-    </HashRouter>
+    </Router>
 
 
   );

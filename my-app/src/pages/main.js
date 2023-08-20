@@ -19,21 +19,25 @@ class Main extends React.Component {
         }))
     }
 
-    callAPI() {
-        const apiUrl = 'http://localhost:4400/api/portfolio';
+    retreivePortfolio(userName) {
+        const apiUrl = 'http://localhost:4400/api/'+userName+'/portfolio';
 
-        fetch(apiUrl)
+        fetch(apiUrl, {
+            method: "GET",
+            mode: "cors"
+        })
             .then(response => response.json())
             .then(response => {
-                for (var i = 0; i < response.data.length; i++) {
-                    console.log(response.data, "is returned");
-                    this.setPort(response.data[i].portfolio);
+                for (var i = 0; i < response.data[0].portfolio.length; i++) {
+                    console.log(response.data[0].portfolio[i], "is returned");
+                    this.setPort(response.data[0].portfolio[i]);
                 }
             })    
     };
 
     componentDidMount() {
-        this.callAPI();
+        this.retreivePortfolio("Investor");
+        console.log("ComponentDidMount is called");
     }
 
     render() {return (
