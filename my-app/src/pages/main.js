@@ -23,8 +23,12 @@ class Main extends React.Component {
         const apiUrl = 'http://localhost:4400/api/'+userName+'/portfolio';
 
         fetch(apiUrl, {
-            method: "GET",
-            mode: "cors"
+            method: "POST",
+            mode: "cors",
+            body: {
+                username: this.props.username,
+                password: this.props.password
+            }
         })
             .then(response => response.json())
             .then(response => {
