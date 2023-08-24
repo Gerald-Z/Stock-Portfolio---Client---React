@@ -25,10 +25,13 @@ class Main extends React.Component {
         fetch(apiUrl, {
             method: "POST",
             mode: "cors",
-            body: {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
                 username: this.props.username,
                 password: this.props.password
-            }
+            })
         })
             .then(response => response.json())
             .then(response => {
@@ -41,7 +44,7 @@ class Main extends React.Component {
 
     componentDidMount() {
         this.retreivePortfolio("Investor");
-        console.log("ComponentDidMount is called");
+     //   console.log("ComponentDidMount is called");
     }
 
     render() {return (

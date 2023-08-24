@@ -14,19 +14,23 @@ const Index = (props) => {
         enteredPassword = e.target.value;
     }
 
-    const getAuthenticated = () => {
-        const apiUrl = 'http://localhost:4400/api/login';
+    const getAuthenticated = async (e) => {
+        e.preventDefault();
 
-        props.Auth(
-            fetch(apiUrl, {
+        const apiUrl = 'http://localhost:4400/api/login';
+        const result = await fetch(apiUrl, {
                 method: "POST",
                 mode: "cors",
-                body: {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
                     username: enteredUsername,
                     password: enteredPassword
-                }
-            })
-        )
+                })
+        });
+
+        props.setAuth(result);
         props.setUser(enteredUsername);
         props.setPass(enteredPassword);
     }
@@ -38,12 +42,12 @@ const Index = (props) => {
     }
 
     return (
-        <form>
+        <form onSubmit={getAuthenticated}>
             <fieldset>
                 <div className="center"><p>Log in to Stock Portfolio Tracker</p></div>
                 <div className="center"><label id="username-label">Username: <input type="text" className="textInput" onChange={handleUsername} required /> </label></div>
                 <div className="center"><label id="password-label">Password: <input type="password" className="textInput" onChange={handlePassword} required /> </label></div>
-                <div className="center"><input type="submit" className="textInput" id="submit" value="Log In" onClick={getAuthenticated}/>  </div>
+                <div className="center"><input type="submit" className="textInput" id="submit" value="Log In"/>  </div>
                 <div className="space">
                    <div className="center"><Link onClick={toNewUser} to="/new_user">New user? Click here to create an account!</Link></div>
                    <div className="center"><Link to="/main">Click here to get to a template portfolio</Link></div>

@@ -29,7 +29,7 @@ function App() {
       if (!newUser) {
         return (
           <Router>
-            <Index Auth={useAuthenticated} setUser={setUsername} setNew={useNewUser} setPass={setPassword}/>
+            <Index setAuth={useAuthenticated} setUser={setUsername} setNew={useNewUser} setPass={setPassword} />
           </Router>);
       } else {
      //   {console.log("Linked to new user")};
@@ -43,8 +43,7 @@ function App() {
       return (
         <Router>
           <Routes>
-            <Route path='/' element={<Index />} />
-            <Route path='/main' element={<Main username={username} password={password}/>} />
+            <Route path='/' element={<Main username={username} password={password}/>} />
             <Route path='/position_changes' element={<PositionChanges />} />
           </Routes>
         </Router>

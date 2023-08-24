@@ -33,10 +33,8 @@ export default function NewUser (props) {
             mode: "cors",
             headers: {
                 "Content-Type": "application/json",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
+            },
             body: JSON.stringify({
-                //console.log("username");
                 "username": username,
                 "password": password,
                 "portfolio": []
@@ -70,7 +68,7 @@ export default function NewUser (props) {
 
     return(
         <>
-            <h1>Create a new account:</h1>
+            <h1 id="newAccountHeader">Create a new account:</h1>
             <form onSubmit={handleSubmission}>
                 <fieldset>
                     <label>Please enter your username: 
