@@ -31,6 +31,12 @@ const Index = (props) => {
         props.setPass(enteredPassword);
     }
 
+    const toNewUser = (e) => {
+        console.log("toNewUser is called");
+        e.preventDefault();
+        props.setNew(true);
+    }
+
     return (
         <form>
             <fieldset>
@@ -39,7 +45,7 @@ const Index = (props) => {
                 <div className="center"><label id="password-label">Password: <input type="password" className="textInput" onChange={handlePassword} required /> </label></div>
                 <div className="center"><input type="submit" className="textInput" id="submit" value="Log In" onClick={getAuthenticated}/>  </div>
                 <div className="space">
-                   <div className="center"><Link to="/new_user">New user? Click here to create an account!</Link></div>
+                   <div className="center"><Link onClick={toNewUser} to="/new_user">New user? Click here to create an account!</Link></div>
                    <div className="center"><Link to="/main">Click here to get to a template portfolio</Link></div>
                 </div>
             </fieldset>

@@ -20,15 +20,11 @@ const PositionChanges = () => {
                 </datalist>
 
                 <button type="submit" id="submitTicker" required>Submit Ticker</button>
-
-                
             </fieldset>
 
             <fieldset className="notTop">
                 <input type="text"></input>
             </fieldset>
-
-            
         </form>
     )
 }
