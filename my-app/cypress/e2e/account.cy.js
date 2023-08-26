@@ -1,4 +1,4 @@
-describe('Login Page Works', () => {
+describe('Tests Basic Account Access, Creation, and Deletion', () => {
   it('Log in via valid credentials', () => {
     cy.visit('https://gerald-z.github.io/Stock-Portfolio---Client---React/')
 
