@@ -11,6 +11,7 @@ class Main extends React.Component {
         this.state = {
             userPortfolio : []
         }
+        this.deleteProfile = this.deleteProfile.bind(this)
     }
 
     setPort(newPortfolio) {
@@ -19,8 +20,23 @@ class Main extends React.Component {
         }))
     }
 
-    retreivePortfolio(userName) {
-        const apiUrl = 'http://localhost:4400/api/'+userName+'/portfolio';
+    deleteProfile(e) {
+        e.preventDefault();
+        const apiUrl = 'http://localhost:4400/api/delete';
+        fetch(apiUrl, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: this.props.username,
+            })
+        }).then(this.props.setAuth(false));
+    }
+
+    retreivePortfolio() {
+        const apiUrl = 'http://localhost:4400/api/portfolio';
 
         fetch(apiUrl, {
             method: "POST",
@@ -43,34 +59,36 @@ class Main extends React.Component {
     };
 
     componentDidMount() {
-        this.retreivePortfolio("Investor");
-     //   console.log("ComponentDidMount is called");
+        this.retreivePortfolio();
     }
 
-    render() {return (
-        <form>
-            <fieldset>
-                <div className="center"><h1>Here Are Your Current Positions:</h1></div>
-                <table className="stock-list">
-                    <tr>
-                        <th>Company Name</th>
-                        <th>Ticker Symbol</th>
-                        <th>Shares Owned</th>
-                        <th>Share Price</th>
-                        <th>Total Cost</th>
-                        <th>Total Value</th>
-                        <th>Estimated Dividend Payout</th>
-                        <th>Estimated Dividend Yield</th>
-                    </tr>
-                    <Table port={this.state.userPortfolio} />
-                </table>
-                
-                <div className="space">
-                   <div className="center"><button><Link to="/position_changes">Bought or Sold Positions? Click Here!</Link></button></div>
-                </div>
-            </fieldset>
-        </form>
-    )}
+    render() {
+        return (
+            <form>
+                <fieldset>
+                    <div className="center"><h1>Here Are Your Current Positions:</h1></div>
+                    <table className="stock-list">
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Ticker Symbol</th>
+                            <th>Shares Owned</th>
+                            <th>Share Price</th>
+                            <th>Total Cost</th>
+                            <th>Total Value</th>
+                            <th>Estimated Dividend Payout</th>
+                            <th>Estimated Dividend Yield</th>
+                        </tr>
+                        <Table port={this.state.userPortfolio} />
+                    </table>
+                    
+                    <div className="space">
+                    <div className="center"><button><Link to="/position_changes">Bought or Sold Positions? Click Here!</Link></button></div>
+                    </div>
+                    <div className="center"><button onClick={this.deleteProfile}>Click here to permanently delete the profile.</button></div>
+                </fieldset>
+            </form>
+        )
+    }
 }
 
 

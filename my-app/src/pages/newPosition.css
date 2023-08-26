@@ -1,8 +1,22 @@
 #submitTicker {
-    margin-left: 5%
+    margin-left: 5%;
+    text-align: center;
 }
 
 fieldset.notTop {
     margin-top: 0px;
     visibility: hidden;
 }
+
+input {
+    display: inline;
+    width: 50%;
+    align-self: right;
+}
+
+label {
+    display: inline;
+    width: 50%;
+}
+
+

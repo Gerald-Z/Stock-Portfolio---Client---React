@@ -1,5 +1,6 @@
 import React from 'react';
 import './newUser.css';
+import { Link } from 'react-router-dom';
 
 
 export default function NewUser (props) {
@@ -40,7 +41,7 @@ export default function NewUser (props) {
                 "portfolio": []
             })
         });
-        console.log("Result:", results);
+       // console.log("Result:", results);
         results = await results.json();
         return results;
     }
@@ -54,15 +55,18 @@ export default function NewUser (props) {
         } else {
             const results = await callAPI(username, passwordOne);
             if (results) {
+                props.setNew(false);
+                props.setAuth(false);
                 warningRef.current.innerHTML = "The new account was created successfully!"
-                props.setNew(true);
+                
             } else {
                 warningRef.current.innerHTML = "An account with that username already exists! Choose a different username!"
-                userRef.current.value = "";
-                passwordRefOne.current.value = "";
-                passwordRefTwo.current.value = "";
             }
+            userRef.current.value = "";
+            passwordRefOne.current.value = "";
+            passwordRefTwo.current.value = "";
         }
+
     }
 
 
@@ -87,8 +91,8 @@ export default function NewUser (props) {
                     <button type="submit" id="submitTicker">Submit Ticker</button>
                 </fieldset>
             </form>
+            <h1 ref={warningRef}></h1>
 
-            <h1 ref={warningRef} />
         </>
     );
 }

@@ -35,7 +35,7 @@ function App() {
      //   {console.log("Linked to new user")};
           return(
             <Router>
-                <NewUser setNew={useNewUser}/>
+                <NewUser setNew={useNewUser}  setAuth={useAuthenticated}/>
             </Router>
           );
       }
@@ -43,8 +43,8 @@ function App() {
       return (
         <Router>
           <Routes>
-            <Route path='/Stock-Portfolio---Client---React' element={<Main username={username} password={password}/>} />
-            <Route path='/position_changes' element={<PositionChanges />} />
+            <Route path='/Stock-Portfolio---Client---React' element={<Main username={username} password={password} setNew={useNewUser} setAuth={useAuthenticated}/>} />
+            <Route path='/position_changes' element={<PositionChanges username={username} password={password}/>} />
           </Routes>
         </Router>
       );

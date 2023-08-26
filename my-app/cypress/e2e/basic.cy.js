@@ -31,7 +31,7 @@ describe('Login Page Works', () => {
   });
 
 
-  it('Create a new account and Re-log in', () => {
+  it('Create a new account, Re-log in, and delete the account', () => {
     cy.visit('https://gerald-z.github.io/Stock-Portfolio---Client---React/');
 
     cy.get(':nth-child(1) > a').click();
@@ -45,6 +45,11 @@ describe('Login Page Works', () => {
     cy.get(':nth-child(3) > input').type("New Investor's Password");
     cy.get(':nth-child(5) > input').type("New Investor's Password");
     cy.get('#submitTicker').click();
-    cy.contains("The new account was created successfully!");
+
+    cy.get('#username-label > .textInput').type("New Investor");
+    cy.get('#password-label > .textInput').type("New Investor's Password");
+    cy.get('#submit').click();
+    
+    cy.get(':nth-child(4) > button').click();
   });
 })
