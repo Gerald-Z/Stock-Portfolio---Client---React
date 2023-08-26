@@ -33,17 +33,17 @@ function App() {
           </Router>);
       } else {
      //   {console.log("Linked to new user")};
-        return(
-          <Router>
-              <NewUser setNew={useNewUser}/>
-          </Router>
-        );
+          return(
+            <Router>
+                <NewUser setNew={useNewUser}/>
+            </Router>
+          );
       }
     } else {
       return (
         <Router>
           <Routes>
-            <Route path='/' element={<Main username={username} password={password}/>} />
+            <Route path='/Stock-Portfolio---Client---React' element={<Main username={username} password={password}/>} />
             <Route path='/position_changes' element={<PositionChanges />} />
           </Routes>
         </Router>
