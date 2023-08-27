@@ -1,6 +1,4 @@
 import React from 'react';
-import './main.css';
-import './newPosition.css';
 import { Link } from 'react-router-dom';
 
 const PositionChanges = (props) => {

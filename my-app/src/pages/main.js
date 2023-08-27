@@ -1,5 +1,4 @@
 import React from 'react';
-import './main.css';
 import Row from '../components/tableEntry.js';
 import Table from '../components/table.js';
 import { Link } from 'react-router-dom';

@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css'
 import { Link } from 'react-router-dom';
 
 
@@ -57,7 +56,6 @@ const Index = (props) => {
                 <div className="center"><input type="submit" className="textInput" id="submit" value="Log In"/>  </div>
                 <div className="space">
                    <div className="center"><Link onClick={toNewUser} to="/new_user">New user? Click here to create an account!</Link></div>
-                   <div className="center"><Link to="/main">Click here to get to a template portfolio</Link></div>
                 </div>
             </fieldset>
         </form>
