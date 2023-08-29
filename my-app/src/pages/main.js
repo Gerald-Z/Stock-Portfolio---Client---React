@@ -68,14 +68,10 @@ class Main extends React.Component {
                     <div className="center"><h1>Here Are Your Current Positions:</h1></div>
                     <table className="stock-list">
                         <tr>
-                            <th>Company Name</th>
                             <th>Ticker Symbol</th>
                             <th>Shares Owned</th>
-                            <th>Share Price</th>
                             <th>Total Cost</th>
                             <th>Total Value</th>
-                            <th>Estimated Dividend Payout</th>
-                            <th>Estimated Dividend Yield</th>
                         </tr>
                         <Table port={this.state.userPortfolio} />
                     </table>
